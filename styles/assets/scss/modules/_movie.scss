@@ -1,0 +1,60 @@
+.am-movie {
+  &_detail {
+    min-height: calc(100vh - 64px - 69px);
+    position: relative;
+    margin: 0 auto;
+    &-background {
+      position: absolute;
+      opacity: 0.4;
+      left: 0;
+      top: 0;
+      z-index: 0;
+    }
+    &-content {
+      position: relative;
+      transform: translate(-50%, 0px);
+      left: 50%;
+      top: 0px;
+      padding: 30px;
+      width: 1200px;
+    }
+    &-image {
+      border-radius: 16px;
+    }
+    &-back {
+      color: #fff;
+      font-size: 16px;
+      font-weight: bold;
+      text-transform: uppercase;
+      cursor: position;
+      &:hover {
+        color: red;
+      }
+    }
+    &-genres {
+      color: #fff;
+      font-size: 24px;
+      display: flex;
+      gap: 16px;
+    }
+    &-title {
+      color: #fff;
+      font-size: 54px;
+      line-height: 60px;
+      font-weight: bold;
+      margin-bottom: 0px;
+    }
+    &-date {
+      color: #fff;
+    }
+    &-description {
+      color: #333;
+      margin-bottom: 0px;
+      font-size: 18px;
+      div {
+        font-size: 20px;
+        font-weight: 500;
+      }
+    }
+  }
+}

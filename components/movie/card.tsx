@@ -5,11 +5,11 @@ import Link from "next/link";
 
 const MovieCard = (props: any) => {
   return (
-    <Col className="gutter-row" span={6}>
-      <Link href="/[slug]" as={`/${encodeURIComponent(props.slug)}`}>
+    <Col className="gutter-row" span={4}>
+      <Link href="/[id]" as={`/${encodeURIComponent(props.id)}`}>
         <a className="am-card">
-          {/* <Image src={props.avatar} alt={props.avatar} width={300} height={300} /> */}
-          <h3>{props.name}</h3>
+          <Image src={props.poster_path} alt={props.original_title} width={300} height={400} />
+          <h3>{props.original_title}</h3>
         </a>
       </Link>
     </Col>
@@ -17,8 +17,9 @@ const MovieCard = (props: any) => {
 };
 
 MovieCard.propTypes = {
-  name: PropTypes.string,
-  slug: PropTypes.string,
+  id: PropTypes.number,
+  original_title: PropTypes.string,
+  poster_path: PropTypes.string,
 };
 
 export { MovieCard };

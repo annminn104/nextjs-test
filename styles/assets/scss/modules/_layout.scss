@@ -1,6 +1,6 @@
 .am-layout {
   &_content {
-    min-height: calc(100vh - 64px - 69px);
+    max-height: calc(100vh - 64px - 69px);
     overflow-y: scroll;
   }
 }

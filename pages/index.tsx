@@ -1,28 +1,27 @@
 import ListMovies from "@components/movie";
-import { ENDPOINT_USER } from "@enums/movie";
-import { Movie } from "@models/movie";
 import type { GetServerSideProps } from "next";
 const API_URL = process.env.NEXT_PUBLIC_API_URL!;
+const API_KEY = process.env.NEXT_PUBLIC_API_KEY!;
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const res = await fetch(API_URL + ENDPOINT_USER.LIST + "?page=1");
-  const response = await res.json();
-
+  const resMovie = await fetch(`${API_URL}/trending/movie/week?api_key=${API_KEY}`);
+  const responseMovie = await resMovie.json();
   return {
     props: {
-      response,
+      responseMovie,
     },
   };
 };
 
 type PropType = {
-  response: Movie[];
+  responseMovie: any;
 };
 
 const Home = (data: PropType) => {
+  // console.log(data.responseMovie);
   return (
     <>
-      <ListMovies data={data.response} />
+      <ListMovies data={data.responseMovie} />
     </>
   );
 };
