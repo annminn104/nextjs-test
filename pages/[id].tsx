@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import type { GetServerSideProps } from "next";
 import Image from "next/image";
 import { Col, Row } from "antd";
+import Seo from "@components/seo";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL!;
 const API_KEY = process.env.NEXT_PUBLIC_API_KEY!;
@@ -28,6 +29,7 @@ const UserDetail = (data: PropType) => {
   console.log(data.responseMovie);
   return (
     <>
+      <Seo title="HomePage - Amitgroup - TRANSFORM DIGI TOGETHER" keywords="amit, amitgroup, it, ai, service, web, design, code, logistic, ios, android, development, website, ux, ui, game, embedded, software, java, python, ..." url="https://amitgroup.vn/" />
       <div className="am-movie_detail">
         <Image src={imagePath + data.responseMovie.backdrop_path} layout="fill" className="am-movie_detail-background" alt={"backdrop_path" + data.responseMovie.backdrop_path} />
         <Row wrap={false} className="am-movie_detail-content" gutter={26}>
