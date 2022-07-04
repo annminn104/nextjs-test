@@ -1,5 +1,4 @@
 import ListMovies from "@components/movie";
-import Seo from "@components/seo";
 
 import type { GetServerSideProps } from "next";
 const API_URL = process.env.NEXT_PUBLIC_API_URL!;
@@ -23,7 +22,6 @@ const Home = (data: PropType) => {
   // console.log(data.responseMovie);
   return (
     <>
-      <Seo title="HomePage - Amitgroup - TRANSFORM DIGI TOGETHER" keywords="amit, amitgroup, it, ai, service, web, design, code, logistic, ios, android, development, website, ux, ui, game, embedded, software, java, python, ..." url="https://amitgroup.vn/" />
       <ListMovies data={data.responseMovie} />
     </>
   );
