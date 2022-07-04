@@ -29,10 +29,10 @@ const UserDetail = (data: PropType) => {
   return (
     <>
       <div className="am-movie_detail">
-        <Image src={imagePath + data.responseMovie.backdrop_path} layout="fill" className="am-movie_detail-background" alt="" />
+        <Image src={imagePath + data.responseMovie.backdrop_path} layout="fill" className="am-movie_detail-background" alt={"backdrop_path" + data.responseMovie.backdrop_path} />
         <Row wrap={false} className="am-movie_detail-content" gutter={26}>
           <Col flex="280px">
-            <Image src={imagePath + data.responseMovie.poster_path} alt="" width="280" height="400" className="am-movie_detail-image" />
+            <Image src={imagePath + data.responseMovie.poster_path} alt={"poster" + data.responseMovie.title} width="280" height="400" className="am-movie_detail-image" />
           </Col>
           <Col flex="auto">
             <div className="am-movie_detail-back" onClick={() => router.back()}>
