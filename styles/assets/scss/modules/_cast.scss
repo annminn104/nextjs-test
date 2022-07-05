@@ -1,16 +1,10 @@
 .am-cast {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: scroll;
-  gap: 36px;
   &_card {
-    min-width: 140px;
-    height: auto;
-    background-color: #fff;
-    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     img {
-      border-top-left-radius: 8px;
-      border-top-right-radius: 8px;
+      border-radius: 8px;
     }
     &-name {
       font-size: 16px;

@@ -19,7 +19,6 @@ type PropType = {
 };
 
 const Home = (data: PropType) => {
-  // console.log(data.responseMovie);
   return (
     <>
       <ListMovies data={data.responseMovie} />
