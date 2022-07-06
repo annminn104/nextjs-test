@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import type { GetServerSideProps } from "next";
 import Image from "next/image";
-import { Col, Row, Carousel } from "antd";
+import { Col, Row } from "antd";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL!;
 const API_KEY = process.env.NEXT_PUBLIC_API_KEY!;
@@ -44,7 +44,7 @@ const UserDetail = (data: PropType) => {
         <div className="am-movie_detail-content">
           <Row wrap={false} gutter={26}>
             <Col flex="280px">
-              <Image src={imagePath + data.responseDetails.poster_path} alt={"poster" + data.responseDetails.title} width="280" height="400" className="am-movie_detail-image" />
+              <Image src={imagePath + data.responseDetails.poster_path} alt={"poster" + data.responseDetails.title} width="254" height="405" className="am-movie_detail-image" />
             </Col>
             <Col flex="auto">
               <div className="am-movie_detail-back" onClick={() => router.back()}>
@@ -75,11 +75,20 @@ const UserDetail = (data: PropType) => {
             </Col>
           </Row>
           <Row gutter={26}>
-            {data.responseVideos.results.map((item: any, key: number) => (
-              <Col span={12} key={key}>
-                <iframe width="100%" height="400px" src={`https://www.youtube.com/embed/${item.key}`}></iframe>
-                <p>{item.type}</p>
-                <p>{item.name}</p>
+            {data.responseVideos.results.slice(0, 3).map((item: any, key: number) => (
+              <Col span={8} key={key} className="am-movie_detail-video">
+                <iframe
+                  width="100%"
+                  height="248px"
+                  src={`https://www.youtube.com/embed/${item.key}?autoplay=2&origin=http://example.com`}
+                  title={`Youtube video player ${item.key}`}
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+                <p className="am-movie_detail-video__name">
+                  {item.type}: <span>{item.name}</span>
+                </p>
               </Col>
             ))}
           </Row>
