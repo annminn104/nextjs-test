@@ -36,7 +36,7 @@ type PropType = {
 const UserDetail = (data: PropType) => {
   const router = useRouter();
   const imagePath = "https://image.tmdb.org/t/p/original";
-  console.log(data.responseCredits);
+  console.log(data.responseVideos);
   return (
     <>
       <div className="am-movie_detail">
@@ -73,6 +73,15 @@ const UserDetail = (data: PropType) => {
                 </div>
               ))}
             </Col>
+          </Row>
+          <Row gutter={26}>
+            {data.responseVideos.results.map((item: any, key: number) => (
+              <Col span={12} key={key}>
+                <iframe width="100%" height="400px" src={`https://www.youtube.com/embed/${item.key}`}></iframe>
+                <p>{item.type}</p>
+                <p>{item.name}</p>
+              </Col>
+            ))}
           </Row>
         </div>
       </div>
