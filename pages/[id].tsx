@@ -36,7 +36,7 @@ type PropType = {
 const UserDetail = (data: PropType) => {
   const router = useRouter();
   const imagePath = "https://image.tmdb.org/t/p/original";
-  console.log(data.responseVideos);
+  console.log(data.responseCredits);
   return (
     <>
       <div className="am-movie_detail">
@@ -63,15 +63,16 @@ const UserDetail = (data: PropType) => {
               </span>
             </Col>
           </Row>
-          <Row>
-            {data.responseCredits.cast.slice(0, 4).map((item: any, key: number) => (
-              <Col span={6} className="am-cast" key={key}>
-                <div className="am-cast_card">
+          <Row gutter={26}>
+            <Col span={12} className="am-cast">
+              {data.responseCredits.cast.slice(0, 4).map((item: any, key: number) => (
+                <div className="am-cast_card" key={key}>
                   <Image src={imagePath + item.profile_path} alt={item.character} width="140" height="180" />
                   <p className="am-cast_card-name">{item.original_name}</p>
+                  <p className="am-cast_card-character">{item.character}</p>
                 </div>
-              </Col>
-            ))}
+              ))}
+            </Col>
           </Row>
         </div>
       </div>
