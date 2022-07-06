@@ -1,3 +1,15 @@
 .ant-row {
   margin: 0px !important;
 }
+.am-menu {
+  list-style: none;
+  a {
+    font-weight: 700;
+    color: #ffffff;
+  }
+  &_active {
+    a {
+      color: #00c58e;
+    }
+  }
+}

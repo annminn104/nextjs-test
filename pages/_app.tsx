@@ -2,6 +2,8 @@ import "../styles/assets/scss/index.scss";
 import type { AppProps } from "next/app";
 import { Layout } from "antd";
 import Head from "next/head";
+import { FooterDefault } from "@components/footer";
+import { HeaderDefault } from "@components/header";
 const { Header, Footer, Content } = Layout;
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -22,11 +24,15 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta property="og:image" content="https://i.pinimg.com/564x/44/e3/72/44e372f2e74d3f3e0cf247adda6b7b48.jpg" key="ogimage" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header>header</Header>
+      <Header>
+        <HeaderDefault />
+      </Header>
       <Content className="am-layout_content">
         <Component {...pageProps} />
       </Content>
-      <Footer>footer</Footer>
+      <Footer>
+        <FooterDefault />
+      </Footer>
     </Layout>
   );
 }

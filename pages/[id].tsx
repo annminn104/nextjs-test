@@ -36,7 +36,7 @@ type PropType = {
 const UserDetail = (data: PropType) => {
   const router = useRouter();
   const imagePath = "https://image.tmdb.org/t/p/original";
-  console.log(data.responseVideos);
+  console.log(data.responseDetails);
   return (
     <>
       <div className="am-movie_detail">
@@ -61,11 +61,30 @@ const UserDetail = (data: PropType) => {
                 <div>Overview</div>
                 {data.responseDetails.overview}
               </span>
+
+              {/* {data.responseDetails.production_companies.map((item: any, key: number) => (
+                <div key={key} className="am-movie_detail-company">
+                  {item.logo_path && <Image src={imagePath + item.logo_path} layout="fill" alt={"Logo company " + item.name} />}
+                </div>
+              ))} */}
             </Col>
           </Row>
-          <Row gutter={26}>
-            <Col span={12} className="am-cast">
-              {data.responseCredits.cast.slice(0, 4).map((item: any, key: number) => (
+          <Row gutter={35}>
+            {data.responseVideos.results.slice(0, 1).map((item: any, key: number) => (
+              <Col span={10} key={key} className="am-movie_detail-video">
+                <iframe
+                  width="100%"
+                  src={`https://www.youtube.com/embed/${item.key}?autoplay=2&origin=http://example.com`}
+                  title={`Youtube video player ${item.key}`}
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  style={{ minHeight: "100%" }}
+                ></iframe>
+              </Col>
+            ))}
+            <Col span={14} className="am-cast">
+              {data.responseCredits.cast.slice(0, 5).map((item: any, key: number) => (
                 <div className="am-cast_card" key={key}>
                   <Image src={imagePath + item.profile_path} alt={item.character} width="140" height="180" />
                   <p className="am-cast_card-name">{item.original_name}</p>
@@ -73,24 +92,6 @@ const UserDetail = (data: PropType) => {
                 </div>
               ))}
             </Col>
-          </Row>
-          <Row gutter={26}>
-            {data.responseVideos.results.slice(0, 3).map((item: any, key: number) => (
-              <Col span={8} key={key} className="am-movie_detail-video">
-                <iframe
-                  width="100%"
-                  height="248px"
-                  src={`https://www.youtube.com/embed/${item.key}?autoplay=2&origin=http://example.com`}
-                  title={`Youtube video player ${item.key}`}
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-                <p className="am-movie_detail-video__name">
-                  {item.type}: <span>{item.name}</span>
-                </p>
-              </Col>
-            ))}
           </Row>
         </div>
       </div>

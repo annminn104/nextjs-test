@@ -1,10 +1,10 @@
 .am-cast {
   display: flex;
-  align-items: center;
   justify-content: space-between;
   &_card {
     max-width: 140px;
-    height: 270px;
+    min-height: 255px;
+    padding-bottom: 8px;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
@@ -20,6 +20,9 @@
       font-size: 16px;
       line-height: 18px;
       font-weight: 500;
+    }
+    &-character {
+      line-height: 16px;
     }
   }
 }
