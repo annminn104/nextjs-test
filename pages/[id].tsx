@@ -36,7 +36,6 @@ type PropType = {
 const UserDetail = (data: PropType) => {
   const router = useRouter();
   const imagePath = "https://image.tmdb.org/t/p/original";
-  console.log(data.responseDetails);
   return (
     <>
       <div className="am-movie_detail">
@@ -47,7 +46,7 @@ const UserDetail = (data: PropType) => {
               <Image src={imagePath + data.responseDetails.poster_path} alt={"poster" + data.responseDetails.title} width="254" height="405" className="am-movie_detail-image" />
             </Col>
             <Col flex="auto">
-              <div className="am-movie_detail-back" onClick={() => router.back()}>
+              <div className="am-movie_detail-back" onClick={() => router.push("/")}>
                 Back to Homepage
               </div>
               <div className="am-movie_detail-genres">
@@ -61,12 +60,6 @@ const UserDetail = (data: PropType) => {
                 <div>Overview</div>
                 {data.responseDetails.overview}
               </span>
-
-              {/* {data.responseDetails.production_companies.map((item: any, key: number) => (
-                <div key={key} className="am-movie_detail-company">
-                  {item.logo_path && <Image src={imagePath + item.logo_path} layout="fill" alt={"Logo company " + item.name} />}
-                </div>
-              ))} */}
             </Col>
           </Row>
           <Row gutter={35}>
