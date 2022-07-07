@@ -43,7 +43,7 @@ const UserDetail = (data: PropType) => {
         <div className="am-movie_detail-content">
           <Row wrap={false} gutter={26}>
             <Col flex="280px">
-              <Image src={imagePath + data.responseDetails.poster_path} alt={"poster" + data.responseDetails.title} width="254" height="405" className="am-movie_detail-image" />
+              <Image src={imagePath + data.responseDetails.poster_path} alt={"poster" + data.responseDetails.title} width="254" height="405" className="am-movie_detail-image" priority={true} />
             </Col>
             <Col flex="auto">
               <div className="am-movie_detail-back" onClick={() => router.push("/")}>
@@ -79,7 +79,7 @@ const UserDetail = (data: PropType) => {
             <Col span={14} className="am-cast">
               {data.responseCredits.cast.slice(0, 5).map((item: any, key: number) => (
                 <div className="am-cast_card" key={key}>
-                  <Image src={imagePath + item.profile_path} alt={item.character} width="140" height="180" />
+                  <Image src={imagePath + item.profile_path} alt={item.character} width="140" height="180" priority={true} />
                   <p className="am-cast_card-name">{item.original_name}</p>
                   <p className="am-cast_card-character">{item.character}</p>
                 </div>

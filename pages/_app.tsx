@@ -23,6 +23,8 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://i.pinimg.com/564x/44/e3/72/44e372f2e74d3f3e0cf247adda6b7b48.jpg" key="ogimage" />
         <link rel="icon" href="/favicon.ico" />
+        <meta name="robots" content="noindex" />
+        <meta name="theme-color" content="#317EFB" />
       </Head>
       <Header>
         <HeaderDefault />
